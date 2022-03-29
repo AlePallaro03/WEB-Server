@@ -1,22 +1,17 @@
-const express= require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 
-router.get('/event',function(req, res){
-  res.send('Benvenuti al sito della Festa di Diploma della 5Ai') //output della richiesta /event
+router.get('/', function(req, res){
+   res.send('GET route on things.');
+});
+router.post('/', function(req, res){
+   res.send('POST route on things.');
 });
 
-router.get('/event/books',function(req, res){
-  res.send('La lista dei libri') //output della richiesta /event/books
+router.post('/event',function(req, res){
+  res.send('evento/fancyParty.html')
 });
 
-router.get('/event/contacts',function(req, res){
-  res.send('La lista dei contatti') //output della richiesta /event/contacts
-});
-
-router.get('/event/location',function(req, res){
-  res.send('indirizzo evento con mappa') //output della richiesta /event/location
-});
-
-module.exports=router;
-
+//export this router to use in our index.js
+module.exports = router;
 
