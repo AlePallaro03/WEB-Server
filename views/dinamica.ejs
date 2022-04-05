@@ -1,0 +1,34 @@
+<html>
+
+
+<head>
+<script language="javascript">
+var ore = new Date().getHours();
+var immagini = new Array(); //creo Array denominato immagini
+
+
+aggiungiSfondo(7,18,"https://imgur.com/WM7WdpD"); //aggiungo lo sfondo per la fascia oraria dalle 7 alle 18
+aggiungiSfondo(19,23,"https://imgur.com/2DeEVvI"); //aggiungo lo sfondo per la fascia oraria dalle 19 alle 23
+aggiungiSfondo(0,6,"https://imgur.com/cW80C8W"); //aggiungo lo sfondo per la fascia oraria dalle 0 alle 6
+
+
+function aggiungiSfondo(oraInizio, oraFine, immagine){
+oraInizio = Math.max(oraInizio,0);
+oraInizio = Math.min(oraInizio,23);
+oraFine = Math.max(oraFine ,0);
+oraFine = Math.min(oraFine ,23);
+
+if(oraInizio>oraFine)
+oraInizio = oraFine;
+
+for(var i = oraInizio;i<=oraFine;i++) 
+immagini[i] = immagine; 
+}
+
+document.write("<style> body{background-image: url("+immagini[ore]+")}</style>");
+</script>
+</head>
+<body>
+  
+</body>
+</html>
