@@ -1,0 +1,28 @@
+<!-- LATO SERVER -->
+<% let orario = new Date(); %>
+<% let ora = orario.getHours() %>
+<% let minuti = orario.getMinutes() %>
+<% let secondi = orario.getSeconds() %>
+  
+  <head>
+
+    <style>
+
+      <% if( ora > 10){ %>
+      body{
+        background-color: black;
+        color: white;
+      }
+        <% } else { %>
+      body{
+        background-color: white;
+        color: black;
+      }
+        <% } %>
+    </style>
+    
+  </head>
+<body>
+<p>Sono le <%= ora %> : <%=minuti %> : <%= secondi %> </p>
+
+</body>

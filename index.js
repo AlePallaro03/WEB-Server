@@ -1,19 +1,34 @@
 const express = require('express');
 const webServer = express();
-const port = 3000; //imposto la porta
+const port = 4000;
 
-const router = require('./routes.js'); //richiamo il modulo router
+const router = require('./router.js');
+
+webServer.set('view engine', 'ejs');
+
+webServer.get('/event/dinamica', function(req, res) {
+  res.render('dinamica');
+});
 
 webServer.use('/', router);
-webServer.set('view engine', 'ejs'); //view engine
+
 webServer.use('/event', express.static('evento'));
 
-webServer.get('/evento', function(req, res) { //Pagina dinamica
-  res.render('dinamica'); //file dinamica situato in views/dinamica.ejs
+webServer.get('/',function(req, res){
+  res.send('hello Get world!')
+});
+
+webServer.post('/',function(req, res){
+  res.send('hello Post world!')
+});
+
+webServer.get('*',function(req, res){
+  res.redirect('/');
 });
 
 webServer.listen(port, function(){
-  console.log(`Il programma ascolta alla porta: ${port}!`) //output
+  console.log(`Example SWeb Server listening on port ${port}!`)
 });
+
 
 
