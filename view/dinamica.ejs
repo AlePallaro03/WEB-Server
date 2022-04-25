@@ -1,21 +1,31 @@
-<!-- LATO SERVER -->
+<!-- ISTRUZIONI LATO SERVER -->
 <% let orario = new Date(); %>
 <% let ora = orario.getHours() %>
 <% let minuti = orario.getMinutes() %>
 <% let secondi = orario.getSeconds() %>
   
   <head>
-
+<!-- Suddivido in orario per il cambio colore -->
     <style>
 
-      <% if( ora > 10){ %>
+      <% if( ora >=0 & ora<=7){ %> 
       body{
-        background-color: black;
-        color: white;
+        background-color: yellow;
+        color: yellow;
       }
-        <% } else { %>
+      <% } elseif( ora >=8 & ora<=18){ %>
       body{
         background-color: white;
+        color: white;
+      }
+      <% elseif( ora >=19 & ora<=22){ %>
+      body{
+        background-color: orange;
+        color: orange;
+      }
+      <% else{ %>
+      body{
+        background-color: black;
         color: black;
       }
         <% } %>
@@ -23,6 +33,6 @@
     
   </head>
 <body>
-<p>Sono le <%= ora %> : <%=minuti %> : <%= secondi %> </p>
+<p>Orario in diretta: <%= ora %> : <%=minuti %> : <%= secondi %> </p>
 
 </body>

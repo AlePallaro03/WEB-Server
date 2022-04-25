@@ -1,5 +1,5 @@
 const express= require('express');
-const router = express.Router();
+const router = express.Router(); //Creazione oggetto con metodo costruttore
 
 router.get('/event',function(req, res){
   res.redirect('/event/fancyParty.html')
@@ -18,5 +18,5 @@ router.get('/event/location',function(req, res){
 });
 
 
-module.exports=router;
+module.exports=router; //esporto il modulo router.js
 
